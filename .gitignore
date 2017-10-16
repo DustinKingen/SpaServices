@@ -308,4 +308,4 @@ OpenCover/
 .nupkgs/
 
 # Library files
-wwwroot/lib/*
+**/wwwroot/lib/*

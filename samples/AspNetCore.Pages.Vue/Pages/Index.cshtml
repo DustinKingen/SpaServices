@@ -1,0 +1,18 @@
+@page
+@model IndexModel
+
+<form id="app">
+    {{ message }}
+</form>
+
+@section Scripts
+{
+    <application-state initial-state="@Model">
+
+    <script type="text/javascript">
+        var app = new Vue({
+            el: '#app',
+            data: window.__INITIAL_STATE__
+        });
+    </script>
+}

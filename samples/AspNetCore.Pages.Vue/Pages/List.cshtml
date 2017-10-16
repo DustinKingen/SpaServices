@@ -1,0 +1,38 @@
+﻿@page
+@model ListModel
+
+<form id="app">
+    <email-address
+        v-for="email in emailAddresses"
+        v-bind:email="email"
+        :key="email">
+    </email-address>
+    <button class="btn btn-primary" type="button" v-on:click="addEmailAddress()">Add email</button>
+</form>
+
+@section Scripts
+{
+    <application-state initial-state="@Model">
+    <script type="text/x-template" id="email-address-template">
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" :value="email">
+        </div>
+    </script>
+    <script type="text/javascript">
+        Vue.component('email-address',
+            {
+                props: ['email'],
+                template: '#email-address-template'
+            });
+        var app = new Vue({
+            el: '#app',
+            data: window.__INITIAL_STATE__,
+            methods: {
+                addEmailAddress: function() {
+                    this.emailAddresses.push('zed@example.com');
+                }
+            }
+        });
+    </script>
+}
